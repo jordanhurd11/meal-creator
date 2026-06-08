@@ -58,12 +58,12 @@ Benefits of using the platform
 
 
 **Inspiration sites:**
-- [Site 1] - what they liked about it
-- [Site 2] - what they liked about it
+
+- https://madmuscles.com/ - Client liked the images on the site and the simplicity of it.
+- https://www.strongrfastr.com - Client liked the minimalist structure of the website and the form to input users' needs in it. 
+
 
 ## Layout Plan
 
-[Include at least one of the following:]
-- A hand-drawn sketch of the layout (snap a photo and add it to your repo)
-- A reference site you want to emulate, with notes on what you will keep or ch
+- Sketch called "Fuel Prep Outline.jpg"
 
