@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FuelPrep | Affordable Meal Prep</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">FuelPrep</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#generator">Meal Plan</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#grocery">Grocery List</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Healthy Meal Prep Made Simple</h2>
+      <p>
+        FuelPrep helps college students and young adults create affordable meal plans,
+        track macros, and build grocery lists that match their fitness goals and budget.
+      </p>
+      <a href="#generator" class="button">Get Started</a>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>1. Enter Your Goals</h3>
+        <p>Choose your fitness goal, calorie target, dietary needs, and grocery budget.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. Get Meal Ideas</h3>
+        <p>Receive simple meal prep recipes with calories, protein, carbs, fat, and cost.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. Shop Smarter</h3>
+        <p>Use a personalized grocery list with estimated prices to stay within budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="generator" class="section">
+    <h2>Meal Plan Generator</h2>
+    <p class="section-intro">
+      Enter your information below to create a personalized meal plan.
+    </p>
+
+    <form class="meal-form">
+      <label for="goal">Fitness Goal</label>
+      <select id="goal">
+        <option>Muscle Gain</option>
+        <option>Fat Loss</option>
+        <option>Maintenance</option>
+      </select>
+
+      <label for="calories">Daily Calorie Target</label>
+      <input type="number" id="calories" placeholder="Example: 2500">
+
+      <label for="restrictions">Dietary Restrictions</label>
+      <input type="text" id="restrictions" placeholder="Example: Gluten-free, dairy-free">
+
+      <label for="budget">Weekly Grocery Budget</label>
+      <input type="number" id="budget" placeholder="Example: 75">
+
+      <button type="submit">Generate Meal Plan</button>
+    </form>
+  </section>
+
+  <section id="recipes" class="section light-section">
+    <h2>Sample Recipe Results</h2>
+
+    <div class="recipe-card">
+      <h3>Chicken Rice Bowl</h3>
+      <p><strong>Ingredients:</strong> Chicken breast, rice, broccoli, olive oil, seasoning.</p>
+      <p><strong>Instructions:</strong> Cook chicken, steam broccoli, prepare rice, and combine in a bowl.</p>
+      <p><strong>Calories:</strong> 620</p>
+      <p><strong>Macros:</strong> 45g protein, 65g carbs, 18g fat</p>
+      <p><strong>Estimated Cost:</strong> $4.75 per serving</p>
+    </div>
+
+    <div class="recipe-card">
+      <h3>Greek Yogurt Protein Bowl</h3>
+      <p><strong>Ingredients:</strong> Greek yogurt, oats, banana, peanut butter, honey.</p>
+      <p><strong>Instructions:</strong> Mix all ingredients in a bowl and serve cold.</p>
+      <p><strong>Calories:</strong> 480</p>
+      <p><strong>Macros:</strong> 35g protein, 55g carbs, 12g fat</p>
+      <p><strong>Estimated Cost:</strong> $3.25 per serving</p>
+    </div>
+  </section>
+
+  <section id="grocery" class="section">
+    <h2>Sample Grocery List</h2>
+
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Estimated Price</th>
+      </tr>
+      <tr>
+        <td>Chicken Breast</td>
+        <td>2 lbs</td>
+        <td>$10.00</td>
+      </tr>
+      <tr>
+        <td>Rice</td>
+        <td>1 bag</td>
+        <td>$4.00</td>
+      </tr>
+      <tr>
+        <td>Broccoli</td>
+        <td>2 bags</td>
+        <td>$5.00</td>
+      </tr>
+      <tr>
+        <td>Greek Yogurt</td>
+        <td>1 container</td>
+        <td>$6.00</td>
+      </tr>
+      <tr>
+        <td>Bananas</td>
+        <td>1 bunch</td>
+        <td>$2.00</td>
+      </tr>
+    </table>
+
+    <p class="total"><strong>Total Estimated Cost:</strong> $27.00</p>
+  </section>
+
+  <section id="about" class="section light-section">
+    <h2>About FuelPrep</h2>
+    <p>
+      FuelPrep was created to help students and young adults eat healthier without
+      spending too much time or money. The platform is designed for people who want
+      to build muscle, lose fat, or maintain a healthy lifestyle while staying on a budget.
+    </p>
+    <p>
+      By combining meal planning, macro tracking, recipe ideas, and grocery budgeting,
+      FuelPrep makes nutrition more simple, affordable, and realistic.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 FuelPrep. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
