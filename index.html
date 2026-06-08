@@ -60,7 +60,7 @@
       Enter your information below to create a personalized meal plan.
     </p>
 
-    <form class="meal-form">
+    <form class="meal-form" id="meal-form">
       <label for="goal">Fitness Goal</label>
       <select id="goal">
         <option>Muscle Gain</option>
@@ -79,6 +79,9 @@
 
       <button type="submit">Generate Meal Plan</button>
     </form>
+
+    <div id="saved-message" class="saved-message"></div>
+    <div id="generated-results" class="generated-results"></div>
   </section>
 
   <section id="recipes" class="section light-section">
@@ -159,5 +162,121 @@
     <p>&copy; 2026 FuelPrep. All rights reserved.</p>
   </footer>
 
+  <script>
+    const mealData = {
+      muscle: {
+        recipes: [
+          { name: "Chicken Rice Bowl", ingredients: "Chicken breast, rice, broccoli, olive oil, seasoning.", instructions: "Cook chicken, steam broccoli, prepare rice, and combine in a bowl.", calories: 620, protein: 45, carbs: 65, fat: 18, cost: 4.75 },
+          { name: "Greek Yogurt Protein Bowl", ingredients: "Greek yogurt, oats, banana, peanut butter, honey.", instructions: "Mix all ingredients in a bowl and serve cold.", calories: 480, protein: 35, carbs: 55, fat: 12, cost: 3.25 },
+          { name: "Turkey & Sweet Potato", ingredients: "Ground turkey, sweet potato, spinach, olive oil.", instructions: "Brown turkey, roast sweet potato cubes, sauté spinach, and serve together.", calories: 560, protein: 40, carbs: 50, fat: 16, cost: 4.50 }
+        ],
+        grocery: [
+          { item: "Chicken Breast", qty: "3 lbs", price: 15.00 },
+          { item: "Ground Turkey", qty: "2 lbs", price: 10.00 },
+          { item: "Rice", qty: "1 bag", price: 4.00 },
+          { item: "Sweet Potatoes", qty: "3 lbs", price: 5.00 },
+          { item: "Broccoli", qty: "2 bags", price: 5.00 },
+          { item: "Greek Yogurt", qty: "1 container", price: 6.00 },
+          { item: "Bananas", qty: "1 bunch", price: 2.00 },
+          { item: "Peanut Butter", qty: "1 jar", price: 5.00 }
+        ]
+      },
+      fatLoss: {
+        recipes: [
+          { name: "Grilled Chicken Salad", ingredients: "Chicken breast, mixed greens, cherry tomatoes, cucumber, light vinaigrette.", instructions: "Grill chicken, chop vegetables, toss with dressing.", calories: 380, protein: 40, carbs: 20, fat: 14, cost: 4.25 },
+          { name: "Egg White Scramble", ingredients: "Egg whites, bell peppers, onion, spinach, whole wheat toast.", instructions: "Sauté veggies, add egg whites, cook until set. Serve with toast.", calories: 320, protein: 35, carbs: 25, fat: 8, cost: 2.75 },
+          { name: "Salmon & Asparagus", ingredients: "Salmon fillet, asparagus, lemon, quinoa.", instructions: "Bake salmon with lemon, steam asparagus, cook quinoa.", calories: 420, protein: 38, carbs: 30, fat: 15, cost: 5.50 }
+        ],
+        grocery: [
+          { item: "Chicken Breast", qty: "2 lbs", price: 10.00 },
+          { item: "Salmon", qty: "1 lb", price: 12.00 },
+          { item: "Egg Whites", qty: "1 carton", price: 4.00 },
+          { item: "Mixed Greens", qty: "1 bag", price: 4.00 },
+          { item: "Quinoa", qty: "1 bag", price: 5.00 },
+          { item: "Asparagus", qty: "1 bunch", price: 4.00 },
+          { item: "Bell Peppers", qty: "3", price: 3.00 }
+        ]
+      },
+      maintenance: {
+        recipes: [
+          { name: "Beef Stir Fry", ingredients: "Lean beef, bell peppers, snap peas, soy sauce, rice.", instructions: "Sear beef strips, stir-fry veggies, add sauce, serve over rice.", calories: 550, protein: 38, carbs: 60, fat: 16, cost: 5.00 },
+          { name: "Pasta Primavera", ingredients: "Whole wheat pasta, zucchini, cherry tomatoes, olive oil, parmesan.", instructions: "Cook pasta, sauté vegetables, toss together with olive oil and cheese.", calories: 500, protein: 18, carbs: 70, fat: 14, cost: 3.75 },
+          { name: "Tuna Wrap", ingredients: "Canned tuna, whole wheat wrap, avocado, lettuce, tomato.", instructions: "Mix tuna with avocado, fill wrap with lettuce and tomato.", calories: 440, protein: 32, carbs: 35, fat: 18, cost: 3.00 }
+        ],
+        grocery: [
+          { item: "Lean Beef", qty: "1.5 lbs", price: 12.00 },
+          { item: "Canned Tuna", qty: "3 cans", price: 4.50 },
+          { item: "Whole Wheat Pasta", qty: "1 box", price: 3.00 },
+          { item: "Whole Wheat Wraps", qty: "1 pack", price: 4.00 },
+          { item: "Bell Peppers", qty: "3", price: 3.00 },
+          { item: "Avocados", qty: "3", price: 4.50 },
+          { item: "Parmesan", qty: "1 container", price: 5.00 }
+        ]
+      }
+    };
+
+    document.getElementById("meal-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const goal = document.getElementById("goal").value.toLowerCase().replace(/\s/g, "");
+      const calories = document.getElementById("calories").value;
+      const restrictions = document.getElementById("restrictions").value;
+      const budget = document.getElementById("budget").value;
+
+      // Save to localStorage
+      const userInputs = { goal, calories, restrictions, budget, savedAt: new Date().toISOString() };
+      localStorage.setItem("fuelPrepUserInputs", JSON.stringify(userInputs));
+
+      // Show saved message
+      const msg = document.getElementById("saved-message");
+      msg.innerHTML = '<p class="success-badge">✓ Your inputs have been saved! Scroll down to see your personalized meal plan.</p>';
+      msg.scrollIntoView({ behavior: "smooth" });
+
+      // Generate meal plan results
+      const data = mealData[goal] || mealData.muscle;
+      const recipesSection = document.getElementById("recipes");
+      const grocerySection = document.getElementById("grocery");
+
+      // Update recipes
+      recipesSection.innerHTML = `
+        <h2>Your Personalized Recipes</h2>
+        <p class="section-intro">Based on your goal: <strong>${document.getElementById("goal").value}</strong>${restrictions ? ` | Restrictions: ${restrictions}` : ""}${calories ? ` | Target: ${calories} cal/day` : ""}</p>
+        ${data.recipes.map(r => `
+          <div class="recipe-card">
+            <h3>${r.name}</h3>
+            <p><strong>Ingredients:</strong> ${r.ingredients}</p>
+            <p><strong>Instructions:</strong> ${r.instructions}</p>
+            <p><strong>Calories:</strong> ${r.calories}</p>
+            <p><strong>Macros:</strong> ${r.protein}g protein, ${r.carbs}g carbs, ${r.fat}g fat</p>
+            <p><strong>Estimated Cost:</strong> $${r.cost.toFixed(2)} per serving</p>
+          </div>
+        `).join("")}
+      `;
+
+      // Update grocery list
+      const totalGrocery = data.grocery.reduce((sum, g) => sum + g.price, 0);
+      grocerySection.innerHTML = `
+        <h2>Your Personalized Grocery List</h2>
+        <p class="section-intro">Weekly groceries${budget ? ` | Budget: $${budget}` : ""}</p>
+        <table>
+          <tr><th>Item</th><th>Quantity</th><th>Estimated Price</th></tr>
+          ${data.grocery.map(g => `<tr><td>${g.item}</td><td>${g.qty}</td><td>$${g.price.toFixed(2)}</td></tr>`).join("")}
+        </table>
+        <p class="total"><strong>Total Estimated Cost:</strong> $${totalGrocery.toFixed(2)}</p>
+      `;
+    });
+
+    // Restore saved inputs on page load
+    window.addEventListener("DOMContentLoaded", function () {
+      const saved = JSON.parse(localStorage.getItem("fuelPrepUserInputs"));
+      if (saved) {
+        const goalMap = { muscle: "Muscle Gain", fatloss: "Fat Loss", maintenance: "Maintenance" };
+        document.getElementById("goal").value = goalMap[saved.goal] || "Muscle Gain";
+        document.getElementById("calories").value = saved.calories || "";
+        document.getElementById("restrictions").value = saved.restrictions || "";
+        document.getElementById("budget").value = saved.budget || "";
+      }
+    });
+  </script>
 </body>
 </html>
