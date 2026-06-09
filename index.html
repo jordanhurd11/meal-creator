@@ -14,15 +14,14 @@
   <!-- ===== NAVIGATION ===== -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="logo">Fuel Prep</a>
+      <a href="index.html" class="logo">Fuel Prep</a>
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="#get-started" class="nav-cta">Get Started</a></li>
       </ul>
     </div>
@@ -135,91 +134,8 @@
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== HOW IT WORKS ===== -->
-  <section id="how-it-works" class="how-it-works">
-    <div class="container">
-      <h2>How It Works</h2>
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="step-number">1</div>
-          <h3>Enter Your Fitness Goals</h3>
-          <p>Choose whether your goal is muscle gain, fat loss, or maintenance.</p>
-        </div>
-        <div class="timeline-connector"></div>
-        <div class="timeline-step">
-          <div class="step-number">2</div>
-          <h3>Set Budget &amp; Preferences</h3>
-          <p>Provide calorie targets, dietary restrictions, and grocery budget information.</p>
-        </div>
-        <div class="timeline-connector"></div>
-        <div class="timeline-step">
-          <div class="step-number">3</div>
-          <h3>Receive AI Meal Recommendations</h3>
-          <p>Fuel Prep generates personalized meal suggestions based on your goals.</p>
-        </div>
-        <div class="timeline-connector"></div>
-        <div class="timeline-step">
-          <div class="step-number">4</div>
-          <h3>Generate Your Grocery List</h3>
-          <p>Receive a complete shopping list with estimated costs and quantities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section id="features" class="features">
-    <div class="container">
-      <h2>Everything You Need to Succeed</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Personalized Meal Plans</h3>
-          <p>Get meal recommendations tailored to your goals and preferences.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>Budget-Friendly Grocery Lists</h3>
-          <p>Stay on budget with optimized grocery planning.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>AI Meal Recommendations</h3>
-          <p>Receive customized meal suggestions powered by AI.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">👨‍🍳</div>
-          <h3>Simple Meal Prep Recipes</h3>
-          <p>Easy-to-follow recipes designed for busy lifestyles.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📅</div>
-          <h3>Weekly Meal Planning</h3>
-          <p>Plan an entire week of meals in minutes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>Our Mission</h2>
-      <p class="about-text">
-        At Fuel Prep, our mission is to make healthy eating simple, affordable, and accessible.
-        We believe everyone should be able to reach their fitness goals without spending hours
-        planning meals or overspending on groceries. By combining personalized nutrition guidance,
-        AI-powered recommendations, and budget-friendly grocery planning, Fuel Prep helps users
-        build sustainable eating habits that fit their lifestyle.
-      </p>
-      <div class="about-benefits">
-        <div class="benefit">⏱️ Save Time</div>
-        <div class="benefit">💵 Stay on Budget</div>
-        <div class="benefit">🏆 Reach Fitness Goals</div>
-        <div class="benefit">🥗 Simplify Meal Prep</div>
+      <div class="audience-cta">
+        <a href="how-it-works.html" class="btn-primary">See How It Works</a>
       </div>
     </div>
   </section>
@@ -245,9 +161,14 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-container">
-      <a href="#home" class="footer-logo">Fuel Prep</a>
+      <a href="index.html" class="footer-logo">Fuel Prep</a>
       <p class="footer-text">
         Fuel Your Fitness Without Breaking Your Budget
+      </p>
+      <p class="footer-links">
+        <a href="index.html">Home</a> &middot;
+        <a href="how-it-works.html">How It Works</a> &middot;
+        <a href="about.html">About</a>
       </p>
       <p class="footer-copy">&copy; 2026 Fuel Prep. All rights reserved.</p>
     </div>
@@ -266,7 +187,7 @@
       });
     });
 
-    // ===== Smooth Scrolling =====
+    // ===== Smooth Scrolling for same-page anchors =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -310,7 +231,6 @@
         email: document.getElementById('lead-email').value,
         savedAt: new Date().toISOString()
       };
-      // Merge with existing hero data if any
       const existing = JSON.parse(localStorage.getItem('fuelPrepLead') || '{}');
       localStorage.setItem('fuelPrepLead', JSON.stringify({ ...existing, ...data }));
 

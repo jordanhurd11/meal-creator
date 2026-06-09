@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works | Fuel Prep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Fuel Prep</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html" class="active">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#get-started" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <p class="hero-tagline">Simple Steps</p>
+      <h1>How It Works</h1>
+      <p class="hero-sub">
+        Get from goals to groceries in four easy steps. Fuel Prep handles the planning so you can focus on what matters.
+      </p>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="step-number">1</div>
+          <h3>Enter Your Fitness Goals</h3>
+          <p>Choose whether your goal is muscle gain, fat loss, or maintenance. Tell us about your lifestyle and what you want to achieve.</p>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-step">
+          <div class="step-number">2</div>
+          <h3>Set Budget &amp; Preferences</h3>
+          <p>Provide your daily calorie target, any dietary restrictions, and your weekly grocery budget so we can tailor everything to you.</p>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-step">
+          <div class="step-number">3</div>
+          <h3>Receive AI Meal Recommendations</h3>
+          <p>Fuel Prep generates personalized meal suggestions based on your goals, preferences, and budget — no more guessing what to eat.</p>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-step">
+          <div class="step-number">4</div>
+          <h3>Generate Your Grocery List</h3>
+          <p>Receive a complete shopping list with estimated costs and quantities. Walk into the store knowing exactly what you need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features">
+    <div class="container">
+      <h2>Everything You Need to Succeed</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Personalized Meal Plans</h3>
+          <p>Get meal recommendations tailored to your goals and preferences.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Budget-Friendly Grocery Lists</h3>
+          <p>Stay on budget with optimized grocery planning.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Meal Recommendations</h3>
+          <p>Receive customized meal suggestions powered by AI.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🍳</div>
+          <h3>Simple Meal Prep Recipes</h3>
+          <p>Easy-to-follow recipes designed for busy lifestyles.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Weekly Meal Planning</h3>
+          <p>Plan an entire week of meals in minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="get-started">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p class="get-started-intro">
+        Join the waitlist for early access and be the first to experience Fuel Prep.
+      </p>
+      <div style="text-align: center;">
+        <a href="index.html#get-started" class="btn-primary" style="display: inline-block; width: auto; padding: 16px 48px;">Get Early Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-container">
+      <a href="index.html" class="footer-logo">Fuel Prep</a>
+      <p class="footer-text">
+        Fuel Your Fitness Without Breaking Your Budget
+      </p>
+      <p class="footer-links">
+        <a href="index.html">Home</a> &middot;
+        <a href="how-it-works.html">How It Works</a> &middot;
+        <a href="about.html">About</a>
+      </p>
+      <p class="footer-copy">&copy; 2026 Fuel Prep. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Mobile Toggle =====
+    document.getElementById('mobile-toggle').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-links').classList.remove('open');
+      });
+    });
+
+    // ===== Sticky Nav Shadow on Scroll =====
+    window.addEventListener('scroll', function () {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -84,6 +84,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #2563EB;
 }
 
+.nav-links a.active {
+  color: #2563EB;
+  font-weight: 600;
+}
+
 .nav-cta {
   background: #2563EB;
   color: #fff !important;
@@ -694,6 +699,22 @@ footer {
   margin-top: 4px;
 }
 
+/* ===== FOOTER LINKS ===== */
+.footer-links {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #9CA3AF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hero-left h1 {
@@ -824,4 +845,44 @@ footer {
   .audience-card {
     padding: 28px 20px;
   }
+}
+
+/* ===== PAGE HERO (inner pages) ===== */
+.page-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 24px 60px;
+  background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 50%, #EFF6FF 100%);
+  text-align: center;
+}
+
+.page-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1F2937;
+}
+
+.page-hero-content .hero-sub {
+  max-width: 600px;
+}
+
+/* ===== AUDIENCE CTA ===== */
+.audience-cta {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.audience-cta .btn-primary {
+  display: inline-block;
+  width: auto;
+  padding: 16px 40px;
+  text-decoration: none;
 }
