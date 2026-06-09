@@ -3,278 +3,335 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FuelPrep | Affordable Meal Prep</title>
+  <title>Fuel Prep | Meal Planning Made Easy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">FuelPrep</h1>
-      <ul class="nav-links">
+  <!-- ===== NAVIGATION ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">Fuel Prep</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#generator">Meal Plan</a></li>
-        <li><a href="#recipes">Recipes</a></li>
-        <li><a href="#grocery">Grocery List</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#get-started" class="nav-cta">Get Started</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
+  <!-- ===== HERO SECTION ===== -->
   <section id="home" class="hero">
-    <div class="hero-content">
-      <h2>Healthy Meal Prep Made Simple</h2>
-      <p>
-        FuelPrep helps college students and young adults create affordable meal plans,
-        track macros, and build grocery lists that match their fitness goals and budget.
+    <div class="hero-container">
+      <div class="hero-left">
+        <p class="hero-tagline">Meal Planning Made Easy.</p>
+        <h1>Fuel Your Fitness<br>Without Breaking<br>Your Budget</h1>
+        <p class="hero-sub">
+          Build muscle, lose fat, and save money with personalized meal plans,
+          AI-powered recommendations, and budget-friendly grocery lists.
+        </p>
+        <form class="hero-form" id="hero-form">
+          <div class="form-row">
+            <input type="text" id="form-name" placeholder="Your Name" required>
+            <input type="email" id="form-email" placeholder="Email Address" required>
+          </div>
+          <div class="form-row">
+            <select id="form-goal" required>
+              <option value="" disabled selected>Fitness Goal</option>
+              <option value="Muscle Gain">Muscle Gain</option>
+              <option value="Fat Loss">Fat Loss</option>
+              <option value="Maintenance">Maintenance</option>
+            </select>
+            <input type="number" id="form-calories" placeholder="Daily Calories (e.g. 2400)">
+          </div>
+          <div class="form-row">
+            <input type="text" id="form-restrictions" placeholder="Dietary Restrictions (optional)">
+            <input type="number" id="form-budget" placeholder="Weekly Budget $">
+          </div>
+          <button type="submit" class="btn-primary">Get My Plan</button>
+        </form>
+        <div id="form-success" class="form-success"></div>
+      </div>
+      <div class="hero-right">
+        <div class="dashboard-mockup">
+          <div class="dash-header">
+            <span class="dash-dot red"></span>
+            <span class="dash-dot yellow"></span>
+            <span class="dash-dot green"></span>
+          </div>
+          <div class="dash-body">
+            <div class="dash-section">
+              <h4>Nutrition Summary</h4>
+              <div class="macro-row">
+                <div class="macro"><span class="macro-label">Calories</span><span class="macro-val">2,400</span></div>
+                <div class="macro"><span class="macro-label">Protein</span><span class="macro-val">180g</span></div>
+                <div class="macro"><span class="macro-label">Carbs</span><span class="macro-val">250g</span></div>
+                <div class="macro"><span class="macro-label">Fat</span><span class="macro-val">70g</span></div>
+              </div>
+            </div>
+            <div class="dash-section">
+              <h4>Weekly Meal Plan</h4>
+              <div class="meal-row">
+                <span class="meal-item">Breakfast</span><span class="meal-item">Lunch</span><span class="meal-item">Dinner</span><span class="meal-item">Snacks</span>
+              </div>
+            </div>
+            <div class="dash-section">
+              <h4>Grocery List</h4>
+              <div class="grocery-row"><span>Chicken Breast</span><span>$10.00</span></div>
+              <div class="grocery-row"><span>Rice</span><span>$4.00</span></div>
+              <div class="grocery-row"><span>Broccoli</span><span>$5.00</span></div>
+              <div class="grocery-row"><span>Greek Yogurt</span><span>$6.00</span></div>
+              <div class="grocery-row total-row"><span>Total</span><span>$48.72</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AUDIENCE SECTION ===== -->
+  <section class="audience">
+    <div class="container">
+      <h2>Designed for Students and Busy Professionals</h2>
+      <p class="audience-intro">
+        Fuel Prep helps you spend less time planning meals and more time focusing on your goals.
+        Whether you're balancing classes, work, the gym, or all three, Fuel Prep simplifies meal
+        planning with personalized recommendations, easy recipes, and budget-friendly grocery lists.
       </p>
-      <a href="#generator" class="button">Get Started</a>
-    </div>
-  </section>
-
-  <section class="how-it-works">
-    <h2>How It Works</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>1. Enter Your Goals</h3>
-        <p>Choose your fitness goal, calorie target, dietary needs, and grocery budget.</p>
+      <div class="audience-cards">
+        <div class="audience-card">
+          <div class="audience-icon">🎓</div>
+          <h3>Students</h3>
+          <ul>
+            <li>Affordable meal planning</li>
+            <li>Quick meal preparation</li>
+            <li>Budget-friendly grocery lists</li>
+          </ul>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">💼</div>
+          <h3>Busy Professionals</h3>
+          <ul>
+            <li>Save time every week</li>
+            <li>Simple planning process</li>
+            <li>Convenient meal solutions</li>
+          </ul>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">💪</div>
+          <h3>Fitness Enthusiasts</h3>
+          <ul>
+            <li>Reach fitness goals</li>
+            <li>Personalized nutrition</li>
+            <li>Consistent meal planning</li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card">
-        <h3>2. Get Meal Ideas</h3>
-        <p>Receive simple meal prep recipes with calories, protein, carbs, fat, and cost.</p>
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="step-number">1</div>
+          <h3>Enter Your Fitness Goals</h3>
+          <p>Choose whether your goal is muscle gain, fat loss, or maintenance.</p>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-step">
+          <div class="step-number">2</div>
+          <h3>Set Budget &amp; Preferences</h3>
+          <p>Provide calorie targets, dietary restrictions, and grocery budget information.</p>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-step">
+          <div class="step-number">3</div>
+          <h3>Receive AI Meal Recommendations</h3>
+          <p>Fuel Prep generates personalized meal suggestions based on your goals.</p>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-step">
+          <div class="step-number">4</div>
+          <h3>Generate Your Grocery List</h3>
+          <p>Receive a complete shopping list with estimated costs and quantities.</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card">
-        <h3>3. Shop Smarter</h3>
-        <p>Use a personalized grocery list with estimated prices to stay within budget.</p>
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Everything You Need to Succeed</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Personalized Meal Plans</h3>
+          <p>Get meal recommendations tailored to your goals and preferences.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Budget-Friendly Grocery Lists</h3>
+          <p>Stay on budget with optimized grocery planning.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Meal Recommendations</h3>
+          <p>Receive customized meal suggestions powered by AI.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🍳</div>
+          <h3>Simple Meal Prep Recipes</h3>
+          <p>Easy-to-follow recipes designed for busy lifestyles.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Weekly Meal Planning</h3>
+          <p>Plan an entire week of meals in minutes.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="generator" class="section">
-    <h2>Meal Plan Generator</h2>
-    <p class="section-intro">
-      Enter your information below to create a personalized meal plan.
-    </p>
-
-    <form class="meal-form" id="meal-form">
-      <label for="goal">Fitness Goal</label>
-      <select id="goal">
-        <option>Muscle Gain</option>
-        <option>Fat Loss</option>
-        <option>Maintenance</option>
-      </select>
-
-      <label for="calories">Daily Calorie Target</label>
-      <input type="number" id="calories" placeholder="Example: 2500">
-
-      <label for="restrictions">Dietary Restrictions</label>
-      <input type="text" id="restrictions" placeholder="Example: Gluten-free, dairy-free">
-
-      <label for="budget">Weekly Grocery Budget</label>
-      <input type="number" id="budget" placeholder="Example: 75">
-
-      <button type="submit">Generate Meal Plan</button>
-    </form>
-
-    <div id="saved-message" class="saved-message"></div>
-    <div id="generated-results" class="generated-results"></div>
-  </section>
-
-  <section id="recipes" class="section light-section">
-    <h2>Sample Recipe Results</h2>
-
-    <div class="recipe-card">
-      <h3>Chicken Rice Bowl</h3>
-      <p><strong>Ingredients:</strong> Chicken breast, rice, broccoli, olive oil, seasoning.</p>
-      <p><strong>Instructions:</strong> Cook chicken, steam broccoli, prepare rice, and combine in a bowl.</p>
-      <p><strong>Calories:</strong> 620</p>
-      <p><strong>Macros:</strong> 45g protein, 65g carbs, 18g fat</p>
-      <p><strong>Estimated Cost:</strong> $4.75 per serving</p>
-    </div>
-
-    <div class="recipe-card">
-      <h3>Greek Yogurt Protein Bowl</h3>
-      <p><strong>Ingredients:</strong> Greek yogurt, oats, banana, peanut butter, honey.</p>
-      <p><strong>Instructions:</strong> Mix all ingredients in a bowl and serve cold.</p>
-      <p><strong>Calories:</strong> 480</p>
-      <p><strong>Macros:</strong> 35g protein, 55g carbs, 12g fat</p>
-      <p><strong>Estimated Cost:</strong> $3.25 per serving</p>
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <p class="about-text">
+        At Fuel Prep, our mission is to make healthy eating simple, affordable, and accessible.
+        We believe everyone should be able to reach their fitness goals without spending hours
+        planning meals or overspending on groceries. By combining personalized nutrition guidance,
+        AI-powered recommendations, and budget-friendly grocery planning, Fuel Prep helps users
+        build sustainable eating habits that fit their lifestyle.
+      </p>
+      <div class="about-benefits">
+        <div class="benefit">⏱️ Save Time</div>
+        <div class="benefit">💵 Stay on Budget</div>
+        <div class="benefit">🏆 Reach Fitness Goals</div>
+        <div class="benefit">🥗 Simplify Meal Prep</div>
+      </div>
     </div>
   </section>
 
-  <section id="grocery" class="section">
-    <h2>Sample Grocery List</h2>
-
-    <table>
-      <tr>
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Estimated Price</th>
-      </tr>
-      <tr>
-        <td>Chicken Breast</td>
-        <td>2 lbs</td>
-        <td>$10.00</td>
-      </tr>
-      <tr>
-        <td>Rice</td>
-        <td>1 bag</td>
-        <td>$4.00</td>
-      </tr>
-      <tr>
-        <td>Broccoli</td>
-        <td>2 bags</td>
-        <td>$5.00</td>
-      </tr>
-      <tr>
-        <td>Greek Yogurt</td>
-        <td>1 container</td>
-        <td>$6.00</td>
-      </tr>
-      <tr>
-        <td>Bananas</td>
-        <td>1 bunch</td>
-        <td>$2.00</td>
-      </tr>
-    </table>
-
-    <p class="total"><strong>Total Estimated Cost:</strong> $27.00</p>
+  <!-- ===== GET STARTED / LEAD CAPTURE ===== -->
+  <section id="get-started" class="get-started">
+    <div class="container">
+      <h2>Ready to Transform Your Eating Habits?</h2>
+      <p class="get-started-intro">
+        Join the waitlist for early access and be the first to experience Fuel Prep.
+      </p>
+      <form class="lead-form" id="lead-form">
+        <div class="lead-row">
+          <input type="text" id="lead-name" placeholder="Your Name" required>
+          <input type="email" id="lead-email" placeholder="Email Address" required>
+        </div>
+        <button type="submit" class="btn-primary">Get Early Access</button>
+      </form>
+      <div id="lead-success" class="form-success"></div>
+    </div>
   </section>
 
-  <section id="about" class="section light-section">
-    <h2>About FuelPrep</h2>
-    <p>
-      FuelPrep was created to help students and young adults eat healthier without
-      spending too much time or money. The platform is designed for people who want
-      to build muscle, lose fat, or maintain a healthy lifestyle while staying on a budget.
-    </p>
-    <p>
-      By combining meal planning, macro tracking, recipe ideas, and grocery budgeting,
-      FuelPrep makes nutrition more simple, affordable, and realistic.
-    </p>
-  </section>
-
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2026 FuelPrep. All rights reserved.</p>
+    <div class="footer-container">
+      <a href="#home" class="footer-logo">Fuel Prep</a>
+      <p class="footer-text">
+        Fuel Your Fitness Without Breaking Your Budget
+      </p>
+      <p class="footer-copy">&copy; 2026 Fuel Prep. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
-    const mealData = {
-      muscle: {
-        recipes: [
-          { name: "Chicken Rice Bowl", ingredients: "Chicken breast, rice, broccoli, olive oil, seasoning.", instructions: "Cook chicken, steam broccoli, prepare rice, and combine in a bowl.", calories: 620, protein: 45, carbs: 65, fat: 18, cost: 4.75 },
-          { name: "Greek Yogurt Protein Bowl", ingredients: "Greek yogurt, oats, banana, peanut butter, honey.", instructions: "Mix all ingredients in a bowl and serve cold.", calories: 480, protein: 35, carbs: 55, fat: 12, cost: 3.25 },
-          { name: "Turkey & Sweet Potato", ingredients: "Ground turkey, sweet potato, spinach, olive oil.", instructions: "Brown turkey, roast sweet potato cubes, sauté spinach, and serve together.", calories: 560, protein: 40, carbs: 50, fat: 16, cost: 4.50 }
-        ],
-        grocery: [
-          { item: "Chicken Breast", qty: "3 lbs", price: 15.00 },
-          { item: "Ground Turkey", qty: "2 lbs", price: 10.00 },
-          { item: "Rice", qty: "1 bag", price: 4.00 },
-          { item: "Sweet Potatoes", qty: "3 lbs", price: 5.00 },
-          { item: "Broccoli", qty: "2 bags", price: 5.00 },
-          { item: "Greek Yogurt", qty: "1 container", price: 6.00 },
-          { item: "Bananas", qty: "1 bunch", price: 2.00 },
-          { item: "Peanut Butter", qty: "1 jar", price: 5.00 }
-        ]
-      },
-      fatLoss: {
-        recipes: [
-          { name: "Grilled Chicken Salad", ingredients: "Chicken breast, mixed greens, cherry tomatoes, cucumber, light vinaigrette.", instructions: "Grill chicken, chop vegetables, toss with dressing.", calories: 380, protein: 40, carbs: 20, fat: 14, cost: 4.25 },
-          { name: "Egg White Scramble", ingredients: "Egg whites, bell peppers, onion, spinach, whole wheat toast.", instructions: "Sauté veggies, add egg whites, cook until set. Serve with toast.", calories: 320, protein: 35, carbs: 25, fat: 8, cost: 2.75 },
-          { name: "Salmon & Asparagus", ingredients: "Salmon fillet, asparagus, lemon, quinoa.", instructions: "Bake salmon with lemon, steam asparagus, cook quinoa.", calories: 420, protein: 38, carbs: 30, fat: 15, cost: 5.50 }
-        ],
-        grocery: [
-          { item: "Chicken Breast", qty: "2 lbs", price: 10.00 },
-          { item: "Salmon", qty: "1 lb", price: 12.00 },
-          { item: "Egg Whites", qty: "1 carton", price: 4.00 },
-          { item: "Mixed Greens", qty: "1 bag", price: 4.00 },
-          { item: "Quinoa", qty: "1 bag", price: 5.00 },
-          { item: "Asparagus", qty: "1 bunch", price: 4.00 },
-          { item: "Bell Peppers", qty: "3", price: 3.00 }
-        ]
-      },
-      maintenance: {
-        recipes: [
-          { name: "Beef Stir Fry", ingredients: "Lean beef, bell peppers, snap peas, soy sauce, rice.", instructions: "Sear beef strips, stir-fry veggies, add sauce, serve over rice.", calories: 550, protein: 38, carbs: 60, fat: 16, cost: 5.00 },
-          { name: "Pasta Primavera", ingredients: "Whole wheat pasta, zucchini, cherry tomatoes, olive oil, parmesan.", instructions: "Cook pasta, sauté vegetables, toss together with olive oil and cheese.", calories: 500, protein: 18, carbs: 70, fat: 14, cost: 3.75 },
-          { name: "Tuna Wrap", ingredients: "Canned tuna, whole wheat wrap, avocado, lettuce, tomato.", instructions: "Mix tuna with avocado, fill wrap with lettuce and tomato.", calories: 440, protein: 32, carbs: 35, fat: 18, cost: 3.00 }
-        ],
-        grocery: [
-          { item: "Lean Beef", qty: "1.5 lbs", price: 12.00 },
-          { item: "Canned Tuna", qty: "3 cans", price: 4.50 },
-          { item: "Whole Wheat Pasta", qty: "1 box", price: 3.00 },
-          { item: "Whole Wheat Wraps", qty: "1 pack", price: 4.00 },
-          { item: "Bell Peppers", qty: "3", price: 3.00 },
-          { item: "Avocados", qty: "3", price: 4.50 },
-          { item: "Parmesan", qty: "1 container", price: 5.00 }
-        ]
-      }
-    };
-
-    document.getElementById("meal-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const goal = document.getElementById("goal").value.toLowerCase().replace(/\s/g, "");
-      const calories = document.getElementById("calories").value;
-      const restrictions = document.getElementById("restrictions").value;
-      const budget = document.getElementById("budget").value;
-
-      // Save to localStorage
-      const userInputs = { goal, calories, restrictions, budget, savedAt: new Date().toISOString() };
-      localStorage.setItem("fuelPrepUserInputs", JSON.stringify(userInputs));
-
-      // Show saved message
-      const msg = document.getElementById("saved-message");
-      msg.innerHTML = '<p class="success-badge">✓ Your inputs have been saved!</p>';
-      msg.scrollIntoView({ behavior: "smooth" });
-
-      // Generate meal plan results
-      const data = mealData[goal] || mealData.muscle;
-      const recipesSection = document.getElementById("recipes");
-      const grocerySection = document.getElementById("grocery");
-
-      // Update recipes
-      recipesSection.innerHTML = `
-        <h2>Your Personalized Recipes</h2>
-        <p class="section-intro">Based on your goal: <strong>${document.getElementById("goal").value}</strong>${restrictions ? ` | Restrictions: ${restrictions}` : ""}${calories ? ` | Target: ${calories} cal/day` : ""}</p>
-        ${data.recipes.map(r => `
-          <div class="recipe-card">
-            <h3>${r.name}</h3>
-            <p><strong>Ingredients:</strong> ${r.ingredients}</p>
-            <p><strong>Instructions:</strong> ${r.instructions}</p>
-            <p><strong>Calories:</strong> ${r.calories}</p>
-            <p><strong>Macros:</strong> ${r.protein}g protein, ${r.carbs}g carbs, ${r.fat}g fat</p>
-            <p><strong>Estimated Cost:</strong> $${r.cost.toFixed(2)} per serving</p>
-          </div>
-        `).join("")}
-      `;
-
-      // Update grocery list
-      const totalGrocery = data.grocery.reduce((sum, g) => sum + g.price, 0);
-      grocerySection.innerHTML = `
-        <h2>Your Personalized Grocery List</h2>
-        <p class="section-intro">Weekly groceries${budget ? ` | Budget: $${budget}` : ""}</p>
-        <table>
-          <tr><th>Item</th><th>Quantity</th><th>Estimated Price</th></tr>
-          ${data.grocery.map(g => `<tr><td>${g.item}</td><td>${g.qty}</td><td>$${g.price.toFixed(2)}</td></tr>`).join("")}
-        </table>
-        <p class="total"><strong>Total Estimated Cost:</strong> $${totalGrocery.toFixed(2)}</p>
-      `;
+    // ===== Mobile Toggle =====
+    document.getElementById('mobile-toggle').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('open');
     });
 
-    // Restore saved inputs on page load
-    window.addEventListener("DOMContentLoaded", function () {
-      const saved = JSON.parse(localStorage.getItem("fuelPrepUserInputs"));
-      if (saved) {
-        const goalMap = { muscle: "Muscle Gain", fatloss: "Fat Loss", maintenance: "Maintenance" };
-        document.getElementById("goal").value = goalMap[saved.goal] || "Muscle Gain";
-        document.getElementById("calories").value = saved.calories || "";
-        document.getElementById("restrictions").value = saved.restrictions || "";
-        document.getElementById("budget").value = saved.budget || "";
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-links').classList.remove('open');
+      });
+    });
+
+    // ===== Smooth Scrolling =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ===== Hero Form Submit =====
+    document.getElementById('hero-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('form-name').value,
+        email: document.getElementById('form-email').value,
+        goal: document.getElementById('form-goal').value,
+        calories: document.getElementById('form-calories').value,
+        restrictions: document.getElementById('form-restrictions').value,
+        budget: document.getElementById('form-budget').value,
+        savedAt: new Date().toISOString()
+      };
+      localStorage.setItem('fuelPrepLead', JSON.stringify(data));
+
+      const success = document.getElementById('form-success');
+      success.innerHTML = `
+        <div class="success-message">
+          <strong>Thank you for your interest in Fuel Prep!</strong><br>
+          We have received your information and will be in touch soon with updates and early access opportunities.
+        </div>
+      `;
+      success.scrollIntoView({ behavior: 'smooth' });
+      this.reset();
+    });
+
+    // ===== Lead Form Submit =====
+    document.getElementById('lead-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('lead-name').value,
+        email: document.getElementById('lead-email').value,
+        savedAt: new Date().toISOString()
+      };
+      // Merge with existing hero data if any
+      const existing = JSON.parse(localStorage.getItem('fuelPrepLead') || '{}');
+      localStorage.setItem('fuelPrepLead', JSON.stringify({ ...existing, ...data }));
+
+      const success = document.getElementById('lead-success');
+      success.innerHTML = `
+        <div class="success-message">
+          <strong>Thank you for your interest in Fuel Prep!</strong><br>
+          We have received your information and will be in touch soon with updates and early access opportunities.
+        </div>
+      `;
+      success.scrollIntoView({ behavior: 'smooth' });
+      this.reset();
+    });
+
+    // ===== Sticky Nav Shadow on Scroll =====
+    window.addEventListener('scroll', function () {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
     });
   </script>
