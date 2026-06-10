@@ -12,48 +12,59 @@
 <body>
 
   <!-- ===== NAVIGATION ===== -->
-  <header class="navbar" id="navbar">
+  <header class="navbar" id="navbar" role="banner">
     <div class="nav-container">
       <a href="index.html" class="logo">Fuel Prep</a>
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+      <nav aria-label="Main navigation">
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="#get-started" class="nav-cta">Get Started</a></li>
       </ul>
+      </nav>
     </div>
   </header>
 
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
   <!-- ===== HERO SECTION ===== -->
-  <section id="home" class="hero">
+  <section id="home" class="hero" aria-labelledby="hero-heading">
     <div class="hero-container">
       <div class="hero-left">
         <p class="hero-tagline">Meal Planning Made Easy.</p>
-        <h1>Fuel Your Fitness<br>Without Breaking<br>Your Budget</h1>
+        <h1 id="hero-heading">Fuel Your Fitness<br>Without Breaking<br>Your Budget</h1>
         <p class="hero-sub">
           Build muscle, lose fat, and save money with personalized meal plans,
           AI-powered recommendations, and budget-friendly grocery lists.
         </p>
-        <form class="hero-form" id="hero-form">
+        <form class="hero-form" id="hero-form" aria-label="Meal plan generator">
           <div class="form-row">
-            <input type="text" id="form-name" placeholder="Your Name" required>
-            <input type="email" id="form-email" placeholder="Email Address" required>
+            <label for="form-name" class="sr-only">Your Name</label>
+            <input type="text" id="form-name" placeholder="Your Name" autocomplete="name" required>
+            <label for="form-email" class="sr-only">Email Address</label>
+            <input type="email" id="form-email" placeholder="Email Address" autocomplete="email" required>
           </div>
           <div class="form-row">
+            <label for="form-goal" class="sr-only">Fitness Goal</label>
             <select id="form-goal" required>
               <option value="" disabled selected>Fitness Goal</option>
               <option value="Muscle Gain">Muscle Gain</option>
               <option value="Fat Loss">Fat Loss</option>
               <option value="Maintenance">Maintenance</option>
             </select>
-            <input type="number" id="form-calories" placeholder="Daily Calories (e.g. 2400)">
+            <label for="form-calories" class="sr-only">Daily Calories</label>
+            <input type="number" id="form-calories" placeholder="Daily Calories (e.g. 2400)" autocomplete="off">
           </div>
           <div class="form-row">
-            <input type="text" id="form-restrictions" placeholder="Dietary Restrictions (optional)">
-            <input type="number" id="form-budget" placeholder="Weekly Budget $">
+            <label for="form-restrictions" class="sr-only">Dietary Restrictions</label>
+            <input type="text" id="form-restrictions" placeholder="Dietary Restrictions (optional)" autocomplete="off">
+            <label for="form-budget" class="sr-only">Weekly Budget</label>
+            <input type="number" id="form-budget" placeholder="Weekly Budget $" autocomplete="off">
           </div>
           <button type="submit" class="btn-primary">Get My Plan</button>
         </form>
@@ -69,26 +80,31 @@
           <div class="dash-body">
             <div class="dash-section">
               <h4>Nutrition Summary</h4>
-              <div class="macro-row">
-                <div class="macro"><span class="macro-label">Calories</span><span class="macro-val">2,400</span></div>
-                <div class="macro"><span class="macro-label">Protein</span><span class="macro-val">180g</span></div>
-                <div class="macro"><span class="macro-label">Carbs</span><span class="macro-val">250g</span></div>
-                <div class="macro"><span class="macro-label">Fat</span><span class="macro-val">70g</span></div>
-              </div>
+              <dl class="macro-row">
+                <div class="macro"><dt class="macro-label">Calories</dt><dd class="macro-val">2,400</dd></div>
+                <div class="macro"><dt class="macro-label">Protein</dt><dd class="macro-val">180g</dd></div>
+                <div class="macro"><dt class="macro-label">Carbs</dt><dd class="macro-val">250g</dd></div>
+                <div class="macro"><dt class="macro-label">Fat</dt><dd class="macro-val">70g</dd></div>
+              </dl>
             </div>
             <div class="dash-section">
               <h4>Weekly Meal Plan</h4>
-              <div class="meal-row">
-                <span class="meal-item">Breakfast</span><span class="meal-item">Lunch</span><span class="meal-item">Dinner</span><span class="meal-item">Snacks</span>
-              </div>
+              <ul class="meal-row" aria-label="Meal categories">
+                <li class="meal-item">Breakfast</li>
+                <li class="meal-item">Lunch</li>
+                <li class="meal-item">Dinner</li>
+                <li class="meal-item">Snacks</li>
+              </ul>
             </div>
             <div class="dash-section">
               <h4>Grocery List</h4>
-              <div class="grocery-row"><span>Chicken Breast</span><span>$10.00</span></div>
-              <div class="grocery-row"><span>Rice</span><span>$4.00</span></div>
-              <div class="grocery-row"><span>Broccoli</span><span>$5.00</span></div>
-              <div class="grocery-row"><span>Greek Yogurt</span><span>$6.00</span></div>
-              <div class="grocery-row total-row"><span>Total</span><span>$48.72</span></div>
+              <ul class="grocery-list" aria-label="Grocery items and prices">
+                <li class="grocery-row"><span>Chicken Breast</span><span>$10.00</span></li>
+                <li class="grocery-row"><span>Rice</span><span>$4.00</span></li>
+                <li class="grocery-row"><span>Broccoli</span><span>$5.00</span></li>
+                <li class="grocery-row"><span>Greek Yogurt</span><span>$6.00</span></li>
+                <li class="grocery-row total-row"><span>Total</span><span>$48.72</span></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -147,10 +163,12 @@
       <p class="get-started-intro">
         Join the waitlist for early access and be the first to experience Fuel Prep.
       </p>
-      <form class="lead-form" id="lead-form">
+      <form class="lead-form" id="lead-form" aria-label="Early access signup">
         <div class="lead-row">
-          <input type="text" id="lead-name" placeholder="Your Name" required>
-          <input type="email" id="lead-email" placeholder="Email Address" required>
+          <label for="lead-name" class="sr-only">Your Name</label>
+          <input type="text" id="lead-name" placeholder="Your Name" autocomplete="name" required>
+          <label for="lead-email" class="sr-only">Email Address</label>
+          <input type="email" id="lead-email" placeholder="Email Address" autocomplete="email" required>
         </div>
         <button type="submit" class="btn-primary">Get Early Access</button>
       </form>
@@ -158,18 +176,23 @@
     </div>
   </section>
 
+  <!-- ===== END MAIN CONTENT ===== -->
+  </main>
+
   <!-- ===== FOOTER ===== -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-container">
       <a href="index.html" class="footer-logo">Fuel Prep</a>
       <p class="footer-text">
         Fuel Your Fitness Without Breaking Your Budget
       </p>
-      <p class="footer-links">
-        <a href="index.html">Home</a> &middot;
-        <a href="how-it-works.html">How It Works</a> &middot;
-        <a href="about.html">About</a>
-      </p>
+      <nav aria-label="Footer navigation">
+        <p class="footer-links">
+          <a href="index.html">Home</a> &middot;
+          <a href="how-it-works.html">How It Works</a> &middot;
+          <a href="about.html">About</a>
+        </p>
+      </nav>
       <p class="footer-copy">&copy; 2026 Fuel Prep. All rights reserved.</p>
     </div>
   </footer>
@@ -177,13 +200,17 @@
   <script>
     // ===== Mobile Toggle =====
     document.getElementById('mobile-toggle').addEventListener('click', function () {
-      document.getElementById('nav-links').classList.toggle('open');
+      const nav = document.getElementById('nav-links');
+      const isOpen = nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', isOpen);
     });
 
     // Close mobile nav on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
-        document.getElementById('nav-links').classList.remove('open');
+        const nav = document.getElementById('nav-links');
+        nav.classList.remove('open');
+        document.getElementById('mobile-toggle').setAttribute('aria-expanded', 'false');
       });
     });
 

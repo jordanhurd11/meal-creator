@@ -12,26 +12,31 @@
 <body>
 
   <!-- ===== NAVIGATION ===== -->
-  <header class="navbar" id="navbar">
+  <header class="navbar" id="navbar" role="banner">
     <div class="nav-container">
       <a href="index.html" class="logo">Fuel Prep</a>
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+      <nav aria-label="Main navigation">
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="how-it-works.html" class="active">How It Works</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="index.html#get-started" class="nav-cta">Get Started</a></li>
       </ul>
+      </nav>
     </div>
   </header>
 
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
   <!-- ===== HOW IT WORKS ===== -->
-  <section class="page-hero">
+  <section class="page-hero" aria-labelledby="how-heading">
     <div class="container page-hero-content">
       <p class="hero-tagline">Simple Steps</p>
-      <h1>How It Works</h1>
+      <h1 id="how-heading">How It Works</h1>
       <p class="hero-sub">
         Get from goals to groceries in four easy steps. Fuel Prep handles the planning so you can focus on what matters.
       </p>
@@ -40,31 +45,31 @@
 
   <section class="how-it-works">
     <div class="container">
-      <div class="timeline">
-        <div class="timeline-step">
-          <div class="step-number">1</div>
+      <ol class="timeline" aria-label="Four simple steps">
+        <li class="timeline-step">
+          <span class="step-number" aria-hidden="true">1</span>
           <h3>Enter Your Fitness Goals</h3>
           <p>Choose whether your goal is muscle gain, fat loss, or maintenance. Tell us about your lifestyle and what you want to achieve.</p>
-        </div>
-        <div class="timeline-connector"></div>
-        <div class="timeline-step">
-          <div class="step-number">2</div>
+        </li>
+        <li class="timeline-connector" role="separator" aria-hidden="true"></li>
+        <li class="timeline-step">
+          <span class="step-number" aria-hidden="true">2</span>
           <h3>Set Budget &amp; Preferences</h3>
           <p>Provide your daily calorie target, any dietary restrictions, and your weekly grocery budget so we can tailor everything to you.</p>
-        </div>
-        <div class="timeline-connector"></div>
-        <div class="timeline-step">
-          <div class="step-number">3</div>
+        </li>
+        <li class="timeline-connector" role="separator" aria-hidden="true"></li>
+        <li class="timeline-step">
+          <span class="step-number" aria-hidden="true">3</span>
           <h3>Receive AI Meal Recommendations</h3>
           <p>Fuel Prep generates personalized meal suggestions based on your goals, preferences, and budget — no more guessing what to eat.</p>
-        </div>
-        <div class="timeline-connector"></div>
-        <div class="timeline-step">
-          <div class="step-number">4</div>
+        </li>
+        <li class="timeline-connector" role="separator" aria-hidden="true"></li>
+        <li class="timeline-step">
+          <span class="step-number" aria-hidden="true">4</span>
           <h3>Generate Your Grocery List</h3>
           <p>Receive a complete shopping list with estimated costs and quantities. Walk into the store knowing exactly what you need.</p>
-        </div>
-      </div>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -115,18 +120,23 @@
     </div>
   </section>
 
+  <!-- ===== END MAIN CONTENT ===== -->
+  </main>
+
   <!-- ===== FOOTER ===== -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-container">
       <a href="index.html" class="footer-logo">Fuel Prep</a>
       <p class="footer-text">
         Fuel Your Fitness Without Breaking Your Budget
       </p>
-      <p class="footer-links">
-        <a href="index.html">Home</a> &middot;
-        <a href="how-it-works.html">How It Works</a> &middot;
-        <a href="about.html">About</a>
-      </p>
+      <nav aria-label="Footer navigation">
+        <p class="footer-links">
+          <a href="index.html">Home</a> &middot;
+          <a href="how-it-works.html">How It Works</a> &middot;
+          <a href="about.html">About</a>
+        </p>
+      </nav>
       <p class="footer-copy">&copy; 2026 Fuel Prep. All rights reserved.</p>
     </div>
   </footer>
@@ -134,12 +144,16 @@
   <script>
     // ===== Mobile Toggle =====
     document.getElementById('mobile-toggle').addEventListener('click', function () {
-      document.getElementById('nav-links').classList.toggle('open');
+      const nav = document.getElementById('nav-links');
+      const isOpen = nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', isOpen);
     });
 
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
-        document.getElementById('nav-links').classList.remove('open');
+        const nav = document.getElementById('nav-links');
+        nav.classList.remove('open');
+        document.getElementById('mobile-toggle').setAttribute('aria-expanded', 'false');
       });
     });
 

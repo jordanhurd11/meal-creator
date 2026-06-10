@@ -12,26 +12,31 @@
 <body>
 
   <!-- ===== NAVIGATION ===== -->
-  <header class="navbar" id="navbar">
+  <header class="navbar" id="navbar" role="banner">
     <div class="nav-container">
       <a href="index.html" class="logo">Fuel Prep</a>
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+      <nav aria-label="Main navigation">
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
         <li><a href="about.html" class="active">About</a></li>
         <li><a href="index.html#get-started" class="nav-cta">Get Started</a></li>
       </ul>
+      </nav>
     </div>
   </header>
 
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
   <!-- ===== PAGE HERO ===== -->
-  <section class="page-hero">
+  <section class="page-hero" aria-labelledby="about-heading">
     <div class="container page-hero-content">
       <p class="hero-tagline">Our Story</p>
-      <h1>About Fuel Prep</h1>
+      <h1 id="about-heading">About Fuel Prep</h1>
       <p class="hero-sub">
         We're on a mission to make healthy eating simple, affordable, and accessible for everyone.
       </p>
@@ -49,12 +54,12 @@
         AI-powered recommendations, and budget-friendly grocery planning, Fuel Prep helps users
         build sustainable eating habits that fit their lifestyle.
       </p>
-      <div class="about-benefits">
-        <div class="benefit">⏱️ Save Time</div>
-        <div class="benefit">💵 Stay on Budget</div>
-        <div class="benefit">🏆 Reach Fitness Goals</div>
-        <div class="benefit">🥗 Simplify Meal Prep</div>
-      </div>
+      <ul class="about-benefits">
+        <li class="benefit">⏱️ Save Time</li>
+        <li class="benefit">💵 Stay on Budget</li>
+        <li class="benefit">🏆 Reach Fitness Goals</li>
+        <li class="benefit">🥗 Simplify Meal Prep</li>
+      </ul>
     </div>
   </section>
 
@@ -142,18 +147,23 @@
     </div>
   </section>
 
+  <!-- ===== END MAIN CONTENT ===== -->
+  </main>
+
   <!-- ===== FOOTER ===== -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-container">
       <a href="index.html" class="footer-logo">Fuel Prep</a>
       <p class="footer-text">
         Fuel Your Fitness Without Breaking Your Budget
       </p>
-      <p class="footer-links">
-        <a href="index.html">Home</a> &middot;
-        <a href="how-it-works.html">How It Works</a> &middot;
-        <a href="about.html">About</a>
-      </p>
+      <nav aria-label="Footer navigation">
+        <p class="footer-links">
+          <a href="index.html">Home</a> &middot;
+          <a href="how-it-works.html">How It Works</a> &middot;
+          <a href="about.html">About</a>
+        </p>
+      </nav>
       <p class="footer-copy">&copy; 2026 Fuel Prep. All rights reserved.</p>
     </div>
   </footer>
@@ -161,12 +171,16 @@
   <script>
     // ===== Mobile Toggle =====
     document.getElementById('mobile-toggle').addEventListener('click', function () {
-      document.getElementById('nav-links').classList.toggle('open');
+      const nav = document.getElementById('nav-links');
+      const isOpen = nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', isOpen);
     });
 
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
-        document.getElementById('nav-links').classList.remove('open');
+        const nav = document.getElementById('nav-links');
+        nav.classList.remove('open');
+        document.getElementById('mobile-toggle').setAttribute('aria-expanded', 'false');
       });
     });
 
